@@ -1,4 +1,5 @@
 
+import { compareAsc } from 'date-fns';
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 type Language = 'en' | 'fr' | 'ar';
@@ -14,9 +15,9 @@ interface Translations {
 // Add all translations here
 const translations: Translations = {
   welcome: {
-    en: 'Welcome to Bookly',
-    fr: 'Bienvenue sur Bookly',
-    ar: 'مرحبا بكم في بوكلي'
+    en: 'Read, Listen, Publish    All in one place',
+    fr: 'Lisez, Écoutez, Publiez    Tout en un seul lieu',
+    ar: 'اقرأ، استمع، انشر  كل ذلك في مكان واحد'
   },
   login: {
     en: 'Sign in',
@@ -88,6 +89,13 @@ const translations: Translations = {
     fr: 'Écrivain',
     ar: 'كاتب'
   },
+  PublishingCompany: {
+    en: 'Publishing house',
+    fr: 'Maison d edition',
+    ar: 'دار النشر'
+  },
+
+
   readerDescription: {
     en: 'I want to read books',
     fr: 'Je veux lire des livres',

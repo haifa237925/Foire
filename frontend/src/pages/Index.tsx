@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, BookOpen, PenTool, Headphones, Shield } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
+import NewReleasesSection from '@/components/NewReleasesSection';
+import BestSellersSection from '@/components/BestSellersSection';
 const Index = () => {
   const { t } = useLanguage();
   
@@ -62,7 +63,9 @@ const Index = () => {
           </div>
         </div>
       </section>
-
+      <BestSellersSection />
+      <NewReleasesSection />
+      
       {/* Features Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4">

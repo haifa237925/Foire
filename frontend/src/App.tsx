@@ -14,8 +14,21 @@ import ReaderRegister from "./pages/ReaderRegister";
 import WriterRegister from "./pages/WriterRegister";
 import ForgotPassword from "./pages/ForgotPassword";
 import WriterPending from "./pages/WriterPending";
-import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import { OnboardingFlow } from "./components/onboarding/OnboardingFlow";
+import AudiobookCategories from "./pages/AudiobookCategories";
+import AuthorPage from "./pages/AuthorPage";
+import BookDetail from "./pages/BookDetail";
+import CategoryPage from "./pages/CategoryPage";
+import EbookCategories from "./pages/EbookCategories";
+import AdminLayout from "./components/admin/AdminLayout";
+import AdminLogin from "./pages/admin/AdminLogin";
+import BadgesManagement from "./pages/admin/BadgesManagement";
+import BooksManagement from "./pages/admin/BooksManagement";
+import ReportsManagement from "./pages/admin/ReportsManagement";
+import TransactionsManagement from "./pages/admin/TransactionsManagement";
+import UsersManagement from "./pages/admin/UsersManagement";
+import Dashboard from "./pages/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +41,16 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <Routes>
+               {/* Routes publiques */}
+            <Route path="/" element={<Index />} />
+            <Route path="/onboarding" element={<OnboardingFlow />} />
+            <Route path="/book/:id" element={<BookDetail />} />
+            <Route path="/author/:authorId" element={<AuthorPage />} />
+            <Route path="/categories/ebooks" element={<EbookCategories />} />
+            <Route path="/categories/audiobooks" element={<AudiobookCategories />} />
+            <Route path="/category/:type/:categoryName" element={<CategoryPage />} />
+
+
               <Route path="/" element={<Index />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -35,7 +58,18 @@ const App = () => (
               <Route path="/register/writer" element={<WriterRegister />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/writer-pending" element={<WriterPending />} />
-              <Route path="/dashboard" element={<Dashboard />} />
+              
+               {/* Routes admin */}
+            <Route path="/admin-login" element={<AdminLogin />} />
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="users" element={<UsersManagement />} />
+              <Route path="books" element={<BooksManagement />} />
+              <Route path="transactions" element={<TransactionsManagement />} />
+              <Route path="reports" element={<ReportsManagement />} />
+              <Route path="badges" element={<BadgesManagement />} />
+            </Route>
+        
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

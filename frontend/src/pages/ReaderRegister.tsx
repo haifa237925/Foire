@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLanguage } from '@/context/LanguageContext';
@@ -105,7 +104,7 @@ const ReaderRegister = () => {
         title: 'Success',
         description: 'Your account has been created successfully.',
       });
-      navigate('/dashboard'); // Changed from '/' to '/dashboard'
+      navigate('/onboarding'); // Modifié ici: redirection vers onboarding au lieu de dashboard
     } catch (error) {
       toast({
         title: 'Error',

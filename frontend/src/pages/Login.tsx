@@ -186,12 +186,15 @@ const Login = () => {
             {/* Right Side - Image */}
             <div className="hidden lg:block relative bg-bookly-primary/5 animate-fade-in">
               <div className="absolute inset-0 flex items-center justify-center p-8">
-              <img 
-  src="/image00001.jpg" 
-  alt="img" 
-  className="w-[500px] h-[500px] object-cover"
-/>
-
+                <img 
+                  src="/lovable-uploads/d860e6a1-086c-4144-ac4b-59fee2225a1f.png" 
+                  alt="Login illustration" 
+                  className="max-w-full h-auto object-contain rounded-lg"
+                  onError={(e) => {
+                    // Fallback if the uploaded image doesn't exist
+                    e.currentTarget.src = "https://cdn.pixabay.com/photo/2016/03/26/22/21/books-1281581_1280.jpg";
+                  }}
+                />
               </div>
             </div>
           </div>
